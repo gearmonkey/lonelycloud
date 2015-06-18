@@ -8,6 +8,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
+lcenv/
 build/
 develop-eggs/
 dist/
@@ -55,3 +56,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# don't save the api keys
+keys.py
