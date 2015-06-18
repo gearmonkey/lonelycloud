@@ -53,6 +53,8 @@ def fetch_a_lonely_track(sc_client):
     return True
 
 upcoming = q.enqueue(fetch_a_lonely_track, client)
+another = q.enqueue(fetch_a_lonely_track, client)
+onemore = q.enqueue(fetch_a_lonely_track, client)
 
 @app.route('/')
 def index():
