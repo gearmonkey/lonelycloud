@@ -10,8 +10,19 @@ app = Flask(__name__)
 
 client = soundcloud.Client(client_id=os.environ['SOUNDCLOUD_CLIENT_ID'])
 
+def breakup_connect_str(conn_str):
+    if conn_str == 'localhost':
+        return {"host":"localhost",
+                "port":6379,
+                "password":None}
+    parsed = requests.utils.urlparse(conn_str).netloc
+    _, host, port = parsed.split(':')
+    password, host = host.split('@')
+    return {"host":host, "port":port, "password":password}
+
 redis_addr = os.environ.get('REDIS_URL', 'localhost')
-r = redis.StrictRedis(redis_addr)
+redis_conn = breakup_connect_str(redis_addr)
+r = redis.StrictRedis(host=redis_conn['host'], port=redis_conn['port'], password=redis_conn['password'])
 
 def fetch_a_lonely_track(sc_client):
     count = 1
