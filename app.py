@@ -3,13 +3,16 @@ import random
 import soundcloud
 import requests
 import redis
+import os
 
 from flask import Flask, url_for, render_template, redirect
 from keys import * #stick the api keys here
 app = Flask(__name__)
 
-client = soundcloud.Client(client_id=SOUNDCLOUD_CLIENT_ID)
-r = redis.StrictRedis()
+client = soundcloud.Client(client_id=os.environ['SOUNDCLOUD_CLIENT_ID'])
+
+redis_addr = os.environ.get('REDIS_URL', 'localhost')
+r = redis.StrictRedis(redis_addr)
 
 def fetch_a_lonely_track(sc_client):
     count = 1
