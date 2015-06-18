@@ -6,7 +6,6 @@ import redis
 import os
 
 from flask import Flask, url_for, render_template, redirect
-from keys import * #stick the api keys here
 app = Flask(__name__)
 
 client = soundcloud.Client(client_id=os.environ['SOUNDCLOUD_CLIENT_ID'])
