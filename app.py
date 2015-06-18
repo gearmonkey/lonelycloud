@@ -4,7 +4,7 @@ import soundcloud
 import requests
 import redis
 
-from flask import Flask
+from flask import Flask, url_for, render_template, redirect
 from keys import * #stick the api keys here
 app = Flask(__name__)
 
@@ -32,11 +32,17 @@ def fetch_a_lonely_track(sc_client):
 
 @app.route('/')
 def index():
-    return 'Hello World!'
+    return render_template('index.html', lonely=url_for('find_lonely'))
+
+@app.route('/all')
+def find_lonely():
+    sad = fetch_a_lonely_track(client)
+    return redirect(url_for('lonely_track', trackid=sad.id), code=307)
 
 @app.route('/track/<trackid>')
 def lonely_track(trackid):
-    return "track %s" % trackid
+    sad = client.get('/tracks/%s'%trackid)
+    return render_template("track.html", lonely=url_for('find_lonely'), sad=sad)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
