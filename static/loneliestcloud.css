@@ -33,13 +33,13 @@ a:visited {
     color: rgb(146, 109, 41);
 }
 a.button{
-    background: rgb(160, 158, 158);
+    background: rgb(70, 65, 65);
     border-radius: 2px;
     padding: 10px 20px;
     display: block;
     font-family: arial;
     font-weight: bold;
-    color:#413C3C;
+    color: rgb(148, 147, 147);
     text-decoration: none;
     border:1px solid #a7a7a7;
     width:17em;
