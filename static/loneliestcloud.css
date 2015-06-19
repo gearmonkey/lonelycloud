@@ -4,7 +4,7 @@ body {
     background-size: cover;
     font: normal normal normal 1em Helvetica, sans-serif;
 }
-h1, p span{
+h1, p{
     background-color: rgba(148, 147, 147, 0.8);
     color: #413C3C;
 }
@@ -12,10 +12,15 @@ h1 {
     padding: .5em;
 
 }
+p.info{
+    padding: .1;
+}
 p.footer {
     position: absolute;
     bottom: .25em;
     right: .25em;
+    padding: .1em;
+    font-size: 10pt;
 }
 a.button{
     background: rgb(160, 158, 158);

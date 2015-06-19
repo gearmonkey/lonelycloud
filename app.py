@@ -1,6 +1,7 @@
 import random
 import time
 import logging
+import datetime
 
 import soundcloud
 import requests
@@ -72,7 +73,20 @@ def find_lonely():
 @app.route('/track/<trackid>')
 def lonely_track(trackid):
     sad = client.get('/tracks/%s'%trackid)
-    return render_template("track.html", lonely=url_for('find_lonely'), sad=sad)
+    posted_at = datetime.datetime.strptime(sad.created_at, '%Y/%m/%d %H:%M:%S +0000')
+    age = datetime.datetime.now() - posted_at
+    pretty_age = "some time"
+    if age.days < 2:
+        pretty_age = "quite recently"
+    elif age.days < 24:
+        pretty_age = "about a month"
+    elif age.days < 220:
+        pretty_age = "a few months"
+    elif age.days < 540:
+        pretty_age = "a year"
+    else:
+        pretty_age = "a few years ago"
+    return render_template("track.html", lonely=url_for('find_lonely'), sad=sad, pretty_age=pretty_age)
 
 @app.route('/about')
 def about_page():
