@@ -96,3 +96,4 @@ if __name__ == '__main__':
     app.run(debug=True)
     url_for('static', filename='loneliestcloud.css')
     url_for('static', filename='background.jpg')
+    url_for('static', filename='funandplausible.png')

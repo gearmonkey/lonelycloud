@@ -62,4 +62,8 @@ a.button:active{
 a.repeater{
     margin-top:145px;
 }
-
+img.logo {
+    margin-top: .25em;
+    margin-right: .25em;
+    margin-left:.25em;
+}
