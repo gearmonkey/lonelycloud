@@ -13,10 +13,12 @@
     All the tracks the sytem presents have a playcount of zero on soundcloud. As they are autoplayed on load, the system will only ever present a track once. In this way we hear the forgotten, but only for a moment.<br>
     <br>
     Technically, the system has to go looking for unplayed soundcloud tracks, as there is no means to directly search (via the soundcloud api) for track with a playcount filter or order. To do this and still have a reasonably responsive service, a simple async worker queue is set up using rq and redis.<br>
-    The system is a python flask web app, deployed on heroku. The <a href="https://github.com/gearmonkey/lonelycloud">source code is on github.</a></span></p>
+    The system is a python flask web app, deployed on heroku. The <a href="https://github.com/gearmonkey/lonelycloud">source code is on github.</a><br>
     <br>
-    <p><span>Zero is the loneliest number (of plays).</span></p>
     <br>
-    <p><span>background image is cc-by <a href="https://www.flickr.com/photos/richardwalkerphotography/15471215817">Richard Walker</a></span></p>
+    Zero is the loneliest number (of plays).<br>
+    <br>
+    <br>
+    background image is cc-by <a href="https://www.flickr.com/photos/richardwalkerphotography/15471215817">Richard Walker</a></span></p>
     <p class="footer"><span>Made by <a href="http://benfields.net">Ben Fields</a> in 24 hours at <a href="http://musichackday.upf.edu/mhd/2015/">Barcelona Music Hack Day 2015</a>. <a href="/about">More info</a></span><p>
 </body>
