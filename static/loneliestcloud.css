@@ -5,8 +5,9 @@ body {
     font: normal normal normal 1em Helvetica, sans-serif;
 }
 h1, p{
-    background-color: rgba(148, 147, 147, 0.8);
-    color: #413C3C;
+    background-color: rgba(65, 60, 60, 0.8);
+    color: rgb(148, 147, 147);
+/*    color: #413C3C;*/
 }
 h1 {
     padding: .5em;
@@ -24,6 +25,12 @@ p.footer {
     right: .25em;
     padding: .1em;
     font-size: 10pt;
+}
+a {
+    color: rgb(213, 171, 97);
+}
+a:visited {
+    color: rgb(146, 109, 41);
 }
 a.button{
     background: rgb(160, 158, 158);
