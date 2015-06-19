@@ -86,7 +86,8 @@ def lonely_track(trackid):
         pretty_age = "a year"
     else:
         pretty_age = "a few years"
-    return render_template("track.html", lonely=url_for('find_lonely'), sad=sad, pretty_age=pretty_age)
+    encoded_link = sad.permalink_url
+    return render_template("track.html", lonely=url_for('find_lonely'), sad=sad, pretty_age=pretty_age, encoded_link=encoded_link)
 
 @app.route('/about')
 def about_page():
