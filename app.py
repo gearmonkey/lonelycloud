@@ -53,8 +53,8 @@ def fetch_a_lonely_track(sc_client):
     return True
 
 upcoming = q.enqueue(fetch_a_lonely_track, client)
-another = q.enqueue(fetch_a_lonely_track, client)
-onemore = q.enqueue(fetch_a_lonely_track, client)
+# another = q.enqueue(fetch_a_lonely_track, client)
+# onemore = q.enqueue(fetch_a_lonely_track, client)
 
 @app.route('/')
 def index():
@@ -74,5 +74,11 @@ def lonely_track(trackid):
     sad = client.get('/tracks/%s'%trackid)
     return render_template("track.html", lonely=url_for('find_lonely'), sad=sad)
 
+@app.route('/about')
+def about_page():
+    return render_template("about.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
+    url_for('static', filename='loneliestcloud.css')
+    url_for('static', filename='background.jpg')
