@@ -85,7 +85,7 @@ def lonely_track(trackid):
     elif age.days < 540:
         pretty_age = "a year"
     else:
-        pretty_age = "a few years ago"
+        pretty_age = "a few years"
     return render_template("track.html", lonely=url_for('find_lonely'), sad=sad, pretty_age=pretty_age)
 
 @app.route('/about')
